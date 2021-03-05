@@ -34,91 +34,134 @@ void loop()
   {
     if (menuPage == 0)
     {
+      drawBegin();
+      back0:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
       int y = tft.height() - p.x;
       int x = p.y;
-      drawBegin();
       if ((x > 40) && (x < 290))
       {
         if ((y > 70) && (y < 170))
         {
           Serial.println("Begin Pressed");
-          menuPage = 1;
           delay(100);
+          menuPage = 1;
+          tft.fillRect(40, 70, 250, 100, ILI9341_GREEN);
+          tft.drawRect(40, 70, 250, 100, ILI9341_WHITE);
+          tft.setCursor(110, 105);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(4);
+          tft.print("Begin");
         }
       }
+      else goto back0;
     }
 
     if (menuPage == 1)
     {
+      drawZero();
+      back1:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
       int y = tft.height() - p.x;
       int x = p.y;
-      drawZero();
       if ((x > 40) && (x < 290))
       {
         if ((y > 70) && (y < 170))
         {
           Serial.println("Zero Pressed");
-          menuPage = 2;
           delay(100);
+          menuPage = 2;
+          tft.fillRect(40, 70, 250, 100, ILI9341_GREEN);
+          tft.drawRect(40, 70, 250, 100, ILI9341_WHITE);
+          tft.setCursor(110, 105);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(4);
+          tft.print("Zero");
         }
       }
+      else goto back1;
     }
     
     if (menuPage == 2)
     {
+      drawSelect();
+      back2:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
       int y = tft.height() - p.x;
       int x = p.y;
-      drawSelect();
       if ((x > 40) && (x < 290))
       {
         if ((y > 70) && (y < 170))
         {
           Serial.println("Select Height Pressed");
-          menuPage = 3;
           delay(100);
+          menuPage = 3;
+          tft.fillRect(40, 70, 250, 100, ILI9341_GREEN);
+          tft.drawRect(40, 70, 250, 100, ILI9341_WHITE);
+          tft.setCursor(50, 110);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(3);
+          tft.print("Select Height");
         }
       }
+      else goto back2;
     }
     
     if (menuPage == 3)
     {
+      drawHeight();
+      back3:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
       int y = tft.height() - p.x;
       int x = p.y;
-      drawHeight();
       if ((y > 0) && (y < 120))
       {
         if ((x > 0) && (x < 106))
         {
           Serial.println("1in Pressed");
+          delay(100);
           h = 1.00000;
           menuPage = 4;
-          delay(100);
+          tft.fillRect(0, 0, 106, 120, ILI9341_GREEN);
+          tft.drawRect(0, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(30, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("1 in");
         }
         else if ((x > 106) && (x < 212))
         {
           Serial.println("2in Pressed");
+          delay(100);
           h = 2.00000;
           menuPage = 4;
-          delay(100);
+          tft.fillRect(106, 0, 106, 120, ILI9341_GREEN);
+          tft.drawRect(106, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(137, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("2 in");
         }
         else if ((x > 212) && (x < 318))
         {
           Serial.println("3in Pressed");
+          delay(100);
           h = 3.00000;
           menuPage = 4;
-          delay(100);
+          tft.fillRect(212, 0, 106, 120, ILI9341_GREEN);
+          tft.drawRect(212, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(245, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("3 in");
         }
       }
       else if ((y > 120) && (y < 240))
@@ -126,94 +169,153 @@ void loop()
         if ((x > 0) && (x < 106))
         {
           Serial.println("4in Pressed");
+          delay(100);
           h = 4.00000;
           menuPage = 4;
-          delay(100);
+          tft.fillRect(0, 120, 106, 120, ILI9341_GREEN);
+          tft.drawRect(0, 120, 106, 120, ILI9341_WHITE);
+          tft.setCursor(30, 175);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("4 in");
         }
         else if ((x > 106) && (x < 212))
         {
           Serial.println("5in Pressed");
+          delay(100);
           h = 5.00000;
           menuPage = 4;
-          delay(100);
+          tft.fillRect(106, 120, 106, 120, ILI9341_GREEN);
+          tft.drawRect(106, 120, 106, 120, ILI9341_WHITE);
+          tft.setCursor(137, 175);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("5 in");
         }
         else if ((x > 212) && (x < 318))
         {
           Serial.println("6in Pressed");
+          delay(100);
           h = 6.00000;
           menuPage = 5;
-          delay(100);
+          tft.fillRect(212, 120, 106, 120, ILI9341_GREEN);
+          tft.drawRect(212, 120, 106, 120, ILI9341_WHITE);
+          tft.setCursor(245, 175);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("6 in");
         }
       }
+      else goto back3;
     }
     
     if (menuPage == 4)
     {
+      drawFraction();
+      back4:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
       int y = tft.height() - p.x;
       int x = p.y;
-      drawFraction();
       if ((y > 0) && (y < 120))
       {
         if ((x > 0) && (x < 106))
         {
           Serial.println(".00in Pressed");
+          delay(100);
           h += 0.00000;
           menuPage = 5;
-          delay(100);
+          tft.fillRect(0, 0, 106, 120, ILI9341_GREEN);
+          tft.drawRect(0, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(15, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print(".00 in");
         }
-        if ((x > 106) && (x < 212))
+        else if ((x > 106) && (x < 212))
         {
           Serial.println(".25in Pressed");
+          delay(100);
           h += 0.25000;
           menuPage = 5;
-          delay(100);
+          tft.fillRect(106, 0, 106, 120, ILI9341_GREEN);
+          tft.drawRect(106, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(122, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print(".25 in");
         }
-        if ((x > 212) && (x < 318))
+        else if ((x > 212) && (x < 318))
         {
           Serial.println(".50in Pressed");
+          delay(100);
           h += 0.50000;
           menuPage = 5;
-          delay(100);
+          tft.fillRect(212, 0, 106, 120, ILI9341_GREEN);
+          tft.drawRect(212, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(230, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print(".5 in");
         }
       }
-      if ((y > 120) && (y < 240))
+      else if ((y > 120) && (y < 240))
       {
         if ((x > 0) && (x < 106))
         {
           Serial.println(".75in Pressed");
+          delay(100);
           h += 0.75000;
           menuPage = 5;
-          delay(100);
+          tft.fillRect(0, 120, 106, 120, ILI9341_GREEN);
+          tft.drawRect(0, 120, 106, 120, ILI9341_WHITE);
+          tft.setCursor(15, 175);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print(".75 in");
         }
       }
+      else goto back4;
     }
     
     if (menuPage == 5)
     {
+      back5:
+      drawReadout();
+      back6:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
       int y = tft.height() - p.x;
       int x = p.y;
-      drawReadout();
       if ((y > 0) && (y < 120))
       {
         if ((x > 0) && (x < 106))
         {
           Serial.println("-1/32 Pressed");
-          h -= 0.03125;
-          Serial.println(h);
           delay(100);
+          h -= 0.03125;
+          tft.fillRect(0, 0, 106, 120, ILI9341_RED);
+          tft.drawRect(0, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(5, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("-1/32 in");
+          goto back5;
         }
         else if ((x > 212) && (x < 318))
         {
           Serial.println("+.25 Pressed");
-          h += .25000;
-          Serial.println(h);
           delay(100);
+          h += .25000;
+          tft.fillRect(212, 0, 106, 120, ILI9341_GREEN);
+          tft.drawRect(212, 0, 106, 120, ILI9341_WHITE);
+          tft.setCursor(225, 55);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("+.25 in");
+          goto back5;
         }
       }
       else if ((y > 120) && (y < 240))
@@ -221,49 +323,82 @@ void loop()
         if ((x >0) && (x < 106))
         {
           Serial.println("-1/64 Pressed");
-          h -= 0.015625;
-          Serial.println(h);
           delay(100);
+          h -= 0.015625;
+          tft.fillRect(0, 120, 106, 120, ILI9341_RED);
+          tft.drawRect(0, 120, 106, 120, ILI9341_WHITE);
+          tft.setCursor(5, 175);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("-1/64 in");
+          goto back5;
         }
         else if ((x > 106) && (x < 212))
         {
           Serial.println("Zero Pressed");
-          menuPage = 6;
           delay(100);
+          menuPage = 6;
+          tft.fillRect(106, 120, 106, 120, ILI9341_YELLOW);
+          tft.drawRect(106, 120, 106, 120, ILI9341_WHITE);
+          tft.setCursor(135, 175);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("ZERO");
         }
         else if ((x > 212) && (x < 318))
         {
           Serial.println("+.5 Pressed");
-          h += 0.50000;
-          Serial.println(h);
           delay(100);
+          h += 0.50000;
+          tft.fillRect(212, 120, 106, 120, ILI9341_GREEN);
+          tft.drawRect(212, 120, 106, 120, ILI9341_WHITE);
+          tft.setCursor(225, 175);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(2);
+          tft.print("+.50 in");
+          goto back5;
         }
       }
+      else goto back6;
     }
 
     if (menuPage == 6)
     {
+      drawSure();
+      back7:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
       int y = tft.height() - p.x;
       int x = p.y;
-      drawSure();
       if ((y > 120) && (y < 240))
       {
         if ((x > 0) && (x < 106))
         {
           Serial.println("No Pressed");
-          menuPage = 5;
           delay(100);
+          menuPage = 5;
+          tft.fillRect(0, 160, 106, 160, ILI9341_RED);
+          tft.drawRect(0, 160, 106, 160, ILI9341_WHITE);
+          tft.setCursor(35, 190);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(3);
+          tft.print("No");
         }
-        if ((x > 212) && (x < 318))
+        else if ((x > 212) && (x < 318))
         {
           Serial.println("Yes Pressed");
-          menuPage = 1;
           delay(100);
+          menuPage = 1;
+          tft.fillRect(212, 160, 106, 160, ILI9341_GREEN);
+          tft.drawRect(212, 160, 106, 160, ILI9341_WHITE);
+          tft.setCursor(240, 190);
+          tft.setTextColor(ILI9341_WHITE);
+          tft.setTextSize(3);
+          tft.print("Yes");
         }
       }
+      else goto back7;
     }
   }
 }
