@@ -61,8 +61,9 @@ void loop()
 
     if (menuPage == 1)
     {
-      drawZero();
       back1:
+      drawZero();
+      back2:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
@@ -83,13 +84,13 @@ void loop()
           tft.print("Zero");
         }
       }
-      else goto back1;
+      else goto back2;
     }
     
     if (menuPage == 2)
     {
       drawSelect();
-      back2:
+      back3:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
@@ -110,13 +111,13 @@ void loop()
           tft.print("Select Height");
         }
       }
-      else goto back2;
+      else goto back3;
     }
     
     if (menuPage == 3)
     {
       drawHeight();
-      back3:
+      back4:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
@@ -206,13 +207,13 @@ void loop()
           tft.print("6 in");
         }
       }
-      else goto back3;
+      else goto back4;
     }
     
     if (menuPage == 4)
     {
       drawFraction();
-      back4:
+      back5:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
@@ -276,14 +277,14 @@ void loop()
           tft.print(".75 in");
         }
       }
-      else goto back4;
+      else goto back5;
     }
     
     if (menuPage == 5)
     {
-      back5:
-      drawReadout();
       back6:
+      drawReadout();
+      back7:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
@@ -302,7 +303,7 @@ void loop()
           tft.setTextColor(ILI9341_WHITE);
           tft.setTextSize(2);
           tft.print("-1/32 in");
-          goto back5;
+          goto back6;
         }
         else if ((x > 212) && (x < 318))
         {
@@ -315,7 +316,7 @@ void loop()
           tft.setTextColor(ILI9341_WHITE);
           tft.setTextSize(2);
           tft.print("+.25 in");
-          goto back5;
+          goto back6;
         }
       }
       else if ((y > 120) && (y < 240))
@@ -331,7 +332,7 @@ void loop()
           tft.setTextColor(ILI9341_WHITE);
           tft.setTextSize(2);
           tft.print("-1/64 in");
-          goto back5;
+          goto back6;
         }
         else if ((x > 106) && (x < 212))
         {
@@ -356,16 +357,16 @@ void loop()
           tft.setTextColor(ILI9341_WHITE);
           tft.setTextSize(2);
           tft.print("+.50 in");
-          goto back5;
+          goto back6;
         }
       }
-      else goto back6;
+      else goto back7;
     }
 
     if (menuPage == 6)
     {
       drawSure();
-      back7:
+      back8:
       TS_Point p = ts.getPoint();
       p.x = map(p.x, 0, 240, 240, 0);
       p.y = map(p.y, 0, 320, 320, 0);
@@ -384,6 +385,7 @@ void loop()
           tft.setTextColor(ILI9341_WHITE);
           tft.setTextSize(3);
           tft.print("No");
+          goto back6;
         }
         else if ((x > 212) && (x < 318))
         {
@@ -396,9 +398,10 @@ void loop()
           tft.setTextColor(ILI9341_WHITE);
           tft.setTextSize(3);
           tft.print("Yes");
+          goto back1;
         }
       }
-      else goto back7;
+      else goto back8;
     }
   }
 }
