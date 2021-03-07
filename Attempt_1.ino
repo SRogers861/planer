@@ -200,8 +200,8 @@ void handleMenuPage3(int x, int y) {
       tft.setTextSize(2);
       tft.print("6 in");
 
-      menuPage = 4;
-      drawFraction();
+      menuPage = 5;
+      drawReadout();
     }
   }
 }
