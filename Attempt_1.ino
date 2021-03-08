@@ -279,6 +279,8 @@ void handleMenuPage5(int x, int y) {
       tft.setTextColor(ILI9341_WHITE);
       tft.setTextSize(2);
       tft.print("-1/32 in");
+      
+      drawReadout();
     }
     else if (x > 212 && x < 318) {
       Serial.println("+.25 Pressed");
@@ -290,6 +292,8 @@ void handleMenuPage5(int x, int y) {
       tft.setTextColor(ILI9341_WHITE);
       tft.setTextSize(2);
       tft.print("+.25 in");
+      
+      drawReadout();
     }
   }
   else if (y > 120 && y < 240) {
@@ -303,6 +307,8 @@ void handleMenuPage5(int x, int y) {
       tft.setTextColor(ILI9341_WHITE);
       tft.setTextSize(2);
       tft.print("-1/64 in");
+      
+      drawReadout();
     }
     else if (x > 106 && x < 212) {
       Serial.println("Zero Pressed");
@@ -327,6 +333,8 @@ void handleMenuPage5(int x, int y) {
       tft.setTextColor(ILI9341_WHITE);
       tft.setTextSize(2);
       tft.print("+.50 in");
+      
+      drawReadout();
     }
   }
 }
